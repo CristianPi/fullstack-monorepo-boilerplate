@@ -2,7 +2,9 @@ import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Task, TasksDocument, CreateTaskInput, TaskId, UpdateTaskInput } from './task.schema';
+import {getType, reflect} from "tst-reflect";
 
+@reflect()
 @Injectable()
 export class TasksService {
   constructor(@InjectModel(Task.name) private tasksModel: Model<TasksDocument>) {}
@@ -29,3 +31,5 @@ export class TasksService {
     return this.tasksModel.findOneAndRemove({ _id: taskId });
   }
 }
+
+console.dir(getType<TasksService>());

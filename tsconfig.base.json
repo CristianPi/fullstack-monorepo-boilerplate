@@ -3,6 +3,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
+    "noLib": false,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
@@ -10,11 +11,28 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {},
+    "plugins": [
+      {
+        "transform": "tst-reflect-transformer"
+      }
+    ]
   },
-  "exclude": ["node_modules", "tmp"]
+  "reflection": {
+    "debugMode": false,
+    "metadata": {
+      "type": "typelib"
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
