@@ -2,9 +2,8 @@ import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Task, TasksDocument, CreateTaskInput, TaskId, UpdateTaskInput } from './task.schema';
-import {getType, reflect} from "tst-reflect";
+import {reflect} from "typescript-rtti";
 
-@reflect()
 @Injectable()
 export class TasksService {
   constructor(@InjectModel(Task.name) private tasksModel: Model<TasksDocument>) {}
@@ -32,4 +31,4 @@ export class TasksService {
   }
 }
 
-console.dir(getType<TasksService>());
+console.dir(reflect(TasksService).methods);

@@ -21,7 +21,7 @@
     "paths": {},
     "plugins": [
       {
-        "transform": "tst-reflect-transformer"
+        "transform": "typescript-rtti/dist/transformer"
       }
     ]
   },
